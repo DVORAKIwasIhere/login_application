@@ -2,11 +2,8 @@
 import axios from "axios";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
-
-interface Product {
-  id: number;
-  title: string;
-}
+import ProductCard from "@/components/ProductCard";
+import { Product } from "./utils/interfaces";
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -26,7 +23,7 @@ export default function Home() {
       <main className={styles.main}>placeholder</main>
       <div>
         {products.map((product) => (
-          <div key={product.id}>{product.title}</div>
+          <ProductCard key={product.id} products={product} />
         ))}
       </div>
       <footer className={styles.footer}></footer>
