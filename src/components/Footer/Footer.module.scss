@@ -1,0 +1,16 @@
+//Содержит текущий год и текст:
+
+// Для авторизованного пользователя: текущий год и "Logged as {user email}".
+// Для неавторизованного пользователя: только текущий год.
+
+.footer {
+    position: relative;
+    width: 100%;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.footer__text {
+    text-align: center;
+    padding: 20px 0;
+}

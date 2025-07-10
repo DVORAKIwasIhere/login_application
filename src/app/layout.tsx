@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import styles from "./layout.module.scss";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,9 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "AbeloHost test app",
   description: "login + shop application",
-  icons: {
-    
-  }
+  icons: {},
 };
 
 export default function RootLayout({
@@ -28,7 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <div className={styles.wrapper}>
+          <Header></Header>
+          <main>{children}</main>
+          <Footer></Footer>
+        </div>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </body>
     </html>
