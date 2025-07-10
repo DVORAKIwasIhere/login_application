@@ -4,10 +4,17 @@ import Link from "next/link";
 import { useUserStore } from "@/store/user";
 
 import styles from "./Header.module.scss";
+import { useEffect } from "react";
 
 export default function Header() {
   const accessToken = useUserStore((s) => s.accessToken);
+  useEffect(() => {
+  console.log('accessToken', accessToken);
+}, [accessToken]);
   const logout = useUserStore((s) => s.logout);
+  const hasHydrated = useUserStore((s) => s.hasHydrated);
+  
+  if (!hasHydrated) return null;
 
   return (
     <header>
@@ -27,13 +34,14 @@ export default function Header() {
               👤 Login
             </Link>
           )}
+          
         </div>
       </div>
-        <div className={styles.banner}>
-          <h1 className={styles.title}>Abelohost Shop.</h1>
-          <div className={styles.bannerLogo}></div>
-          {/* placeholder */}
-        </div>
+      <div className={styles.banner}>
+        <h1 className={styles.title}>Abelohost Shop.</h1>
+        <div className={styles.bannerLogo}></div>
+        {/* placeholder */}
+      </div>
     </header>
   );
 }
