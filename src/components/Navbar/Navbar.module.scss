@@ -1,0 +1,22 @@
+.nav {
+  background: #e0e0e0;
+  padding: 0.5rem 2rem;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+
+  &:hover {
+    color: #e60023;
+  }
+}
