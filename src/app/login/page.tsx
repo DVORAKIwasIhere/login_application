@@ -1,13 +1,21 @@
 "use client";
 import { useUserStore } from "@/store/user";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
   const router = useRouter();
 
-  const login = useUserStore((state) => state.login)
+  const accessToken = useUserStore((s) => s.accessToken);
+
+  useEffect(() => {
+    if (accessToken) {
+      router.push("/");
+    }
+  }, [accessToken, router]);
+
+  const login = useUserStore((state) => state.login);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
