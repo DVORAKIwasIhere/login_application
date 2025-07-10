@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import styles from "./page.module.css";
+// import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import { Product } from "./utils/interfaces";
@@ -19,14 +19,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>placeholder</main>
+    <div>
       <div>
         {products.map((product) => (
           <ProductCard key={product.id} products={product} />
         ))}
       </div>
-      <footer className={styles.footer}></footer>
     </div>
   );
 }
