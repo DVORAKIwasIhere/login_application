@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 const LoginPage = () => {
   const router = useRouter();
 
+  const login = useUserStore((state) => state.login)
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,10 +19,10 @@ const LoginPage = () => {
       });
       console.log(response);
 
-      document.cookie = `accessToken=${response.data.token}; path=/; secure; samesite=strict`;
+      document.cookie = `accessToken=${response.data.accessToken}; path=/; secure; samesite=strict`;
       console.log("its in cookies" + document.cookie);
 
-      useUserStore.getState().login({
+      login({
         accessToken: response.data.accessToken,
         user: {
           firstName: response.data.firstName,
