@@ -1,13 +1,72 @@
-// Для неавторизованного пользователя: содержит ссылку на страницу авторизации ("Login").
-// Для авторизованного пользователя: отображает имя, фамилию пользователя и кнопку/ссылку "Logout".
-
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px 0;
-  background-color: #333;
+  background: #1a1a1a;
   color: #fff;
-  text-align: center;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+}
+
+@media (max-width: 920px) {
+  .header {
+    flex-direction: column;
+  }
+}
+
+.contacts {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.logoutButton {
+  background: #f88;
+  border: solid 1px #f88;
+  padding: 4px;
+  border-radius: 4px;
+  color: #000;
+  cursor: pointer;
+}
+
+.loginButton {
+  background: #0070f3;
+  border: solid 1px #0070f3;
+  padding: 4px;
+
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #111;
+  color: #fff;
+}
+
+.bannerLogo {
+  background: #ccc;
+  width: 600px;
+  height: 70px;
+  border-radius: 8px;
+}
+
+@media (max-width: 650px) {
+  .bannerLogo {
+    display: none;
+  }
+}
+
+@media (max-width: 920px) {
+  .banner {
+    flex-direction: column;
+    align-items: center;
+  }
 }
