@@ -42,14 +42,14 @@ const LoginPage = () => {
       });
 
       login({
-        accessToken: response.data.token,
+        accessToken: response.data.accessToken,
         user: {
           firstName: response.data.firstName,
           lastName: response.data.lastName,
           email: response.data.email,
         },
       });
-
+      console.log(response.data.token);
       router.push("/");
     } catch (error) {
       console.log(error);
